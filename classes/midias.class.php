@@ -5,7 +5,7 @@ class Midias
   public function addMidia($midias, $caminho, $id_usuario, $id_imovel)
 	{
 		global $pdo;
-    $caminho = 'midias/imagens/';
+    $caminho = 'midias/';
 		
 
 		if (count($midias) > 0) {

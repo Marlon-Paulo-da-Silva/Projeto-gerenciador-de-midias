@@ -27,12 +27,13 @@ $md = new Midias();
 if (isset($_FILES['midias'])) {
   $id_usuario = 150;
   $id_imovel = 1005;
-  $caminho = "midias/imagens/";
+  $caminho = "midias/";
 
 	$midias = $_FILES['midias'];
 	
   
 	$md->addMidia($midias, $caminho, $id_usuario, $id_imovel);
+    die();
   // echo json_encode(var_dump($midias));
 }
 ?>
@@ -105,12 +106,12 @@ if (isset($_FILES['midias'])) {
                         <div class="thumbnail card">
                             <div class="img-event" style="max-height: 190px;overflow: hidden;align-self: center;">
                                 <?php if($midia['tipo_do_arquivo'] == 'application/pdf'): ?>
-                                    <div class="image" style="height: 183px;">
-                                        <img class="group list-group-image img-fluid" style="height: 100px;margin-top: 36px;" src="/mod_documentos_imovel/midias/imagens/pdf-icon.png" alt="" />
+                                    <div class="image" style="height: 183px;text-align: center;width: 509px;">
+                                        <img class="group list-group-image img-fluid" style="height: 100px;margin-top: 36px;" src="/mod_documentos_imovel/midias/pdf-icon.png" alt="" />
                                     </div>
 
                                 <?php elseif($midia['tipo_do_arquivo'] == 'image/png' || $midia['tipo_do_arquivo'] == 'image/jpeg'): ?>
-                                    <img class="group list-group-image img-fluid" src="/mod_documentos_imovel/midias/imagens/<?php echo $midia['nome_temporario'];?>" alt="" />
+                                    <img class="group list-group-image img-fluid" src="/mod_documentos_imovel/midias/<?php echo $midia['nome_temporario'];?>" alt="" />
                                 <?php else: ?>
                                     <img class="group list-group-image img-fluid" src="https://w7.pngwing.com/pngs/256/756/png-transparent-question-mark-illustration-the-three-question-marks-pyramid-solitaire-saga-benevento-russo-duo-question-mark-blue-child-text.png" alt="" />
                                 <?php endif; ?>
@@ -118,9 +119,6 @@ if (isset($_FILES['midias'])) {
                             <div class="caption card-body">
                                 <h4 class="group card-title inner list-group-item-heading">
                                     <?php echo substr($midia['nome_do_identificador'], 0, 20);?>...</h4>
-                                <p class="group inner list-group-item-text">
-                                    <?php echo $midia['tipo_do_arquivo'];?>    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                                 <div class="row">
                                     <div class="col-xs-12 col-md-6">
                                         <p class="lead">
@@ -128,7 +126,7 @@ if (isset($_FILES['midias'])) {
                                     </div>
                                     <div class="col-xs-12 col-md-6" style="display: flex;flex-direction: column;justify-content: space-around;">
                                         <a class="btn btn-danger" href="#">Excluir Arquivo</a>
-                                        <a class="btn btn-success" href="#">Baixar Imagem</a>
+                                        <a class="btn btn-success" href="/mod_documentos_imovel/midias/<?php echo $midia['nome_temporario'];?>" download="<?php echo $midia['nome_do_identificador'];?>">Baixar Imagem</a>
                                     </div>
                                 </div>
                             </div>
@@ -279,6 +277,8 @@ if (isset($_FILES['midias'])) {
     float: left;
     width: 70%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .item.list-group-item:before, .item.list-group-item:after
