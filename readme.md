@@ -15,22 +15,12 @@ Sistema para Gestão de Mídias
   </a>
 </p>
 
-<div align="center">
-  
-  <!-- <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Crud-PHP-com-AJAX/main/repo-img/gifajax.gif" alt="demo" height="325"><br><br>
-  <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Crud-PHP-com-AJAX/main/repo-img/tela1.png" alt="demo" height="325"><br><br>
-  <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Crud-PHP-com-AJAX/main/repo-img/tela2.png" alt="demo" height="325"><br><br>
-  <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Crud-PHP-com-AJAX/main/repo-img/tela3.png" alt="demo" height="325"> -->
-  
-
-</div>
-
 <hr />
 
 ## Características
 - Sistema em desenvolvimento... 
 
 <div align="center">
-  <img align="center" src="https://github.com/Marlon-Paulo-da-Silva/Projeto-gerenciador-de-midias/blob/master/gerenciador-de-midias.png" alt="demo" height="425">
+  <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Projeto-gerenciador-de-midias/main/gerenciador-de-midias.png" alt="demo" height="425">
 
 </div>
