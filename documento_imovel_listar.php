@@ -63,7 +63,7 @@ if (isset($_FILES['midias'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Gerenciador de Mídias</title>
 </head>
 <body>
@@ -72,30 +72,52 @@ if (isset($_FILES['midias'])) {
       <img style="height: 74px;margin-top: 10px;" src="https://rucri.com//images/Gerenciamento_de_midias_logo3.png" alt="" srcset="">
     </div>
   </header>
+
+        
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <form action="" method="Post" enctype="multipart/form-data" >
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Adicione as Midias</h2>
+          </div>
+          <div class="modal-body">
+            <label>Clique para adicionar arquivos</label>
+            <input type="file" name="midias[]" multiple class="form-control-file" style="margin-bottom: 10px;" value="Adicionar arquivos">
+            
+          </div>
+          <div class="modal-footer">
+            <button class="btn" id="exampleModalLabel" style="background-color: #f0b55e;color: white;" type="submit">Salvar</button>
+          </div>
+        </form>
+        </div>
+
+      </div>
   
   <section style="padding: 15px;">
     <div class="cabecalho_painel">
       <h3 style="margin-right: 20px;">Gerenciador de Mídias</h3>
-      <form action="" method="Post" enctype="multipart/form-data" style="width: 300px;padding: 5px;border: 1px solid #144586;border-radius: 5px;">
-          <label>Clique para adicionar arquivos</label>
-          <input type="file" name="midias[]" multiple class="form-control-file" style="margin-bottom: 10px;" value="Adicionar arquivos">
-          <button class="btn" style="background-color: #144586;color: white;" type="submit">Salvar</button>
-        </div>
-      </form>
-
+      
+      <button class="btn" style="background-color: #144586;color: #f0b55e;" id="myBtn"><i class="fa-solid fa-upload"></i> Adicionar Mídia</button>
     </div>
+
     
-    <div class="container">
+    <div class="container" style=" border: 1px solid #f0b55e;border-radius: 7px;">
         <div class="row">
             <div class="col-lg-12 my-3">
                 <div class="pull-right">
                     <div class="btn-group">
-                        <button class="btn btn-info" id="list">
-                            List View
+                        <button class="btn" style="background-color:  #144586;color: #f0b55e;border-right" id="list">
+                          <i class="fas fa-list"></i>
                         </button>
-                        <button class="btn btn-danger" id="grid">
-                            Grid View
+                        <button class="btn" style="background-color: #144586;color: #f0b55e;border-left-color: #f0b55e;" id="grid">
+                          <i class="fa-solid fa-border-all"></i>
                         </button>
+                        <h2 style="color: #144586">&nbsp;Suas Mídias</h2>
                     </div>
                 </div>
             </div>
@@ -125,8 +147,8 @@ if (isset($_FILES['midias'])) {
                                             Data de envio: <?php echo $midia['data_de_upload'];?></p>
                                     </div>
                                     <div class="col-xs-12 col-md-6" style="display: flex;flex-direction: column;justify-content: space-around;">
-                                        <a class="btn btn-danger" href="#">Excluir Arquivo</a>
-                                        <a class="btn btn-success" href="/mod_documentos_imovel/midias/<?php echo $midia['nome_temporario'];?>" download="<?php echo $midia['nome_do_identificador'];?>">Baixar Imagem</a>
+                                        <a class="btn" style="background-color: #144586;color: #f0b55e;margin-bottom: 5px;" href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                                        <a class="btn" style="background-color: #144586;color: #f0b55e;" href="/mod_documentos_imovel/midias/<?php echo $midia['nome_temporario'];?>" download="<?php echo $midia['nome_do_identificador'];?>"><i class="fa-solid fa-download"></i> Baixar</a>
                                     </div>
                                 </div>
                             </div>
@@ -162,15 +184,44 @@ if (isset($_FILES['midias'])) {
 
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+  
   <!-- <script type="text/javascript" src="./js/functions.js"></script> -->
   <script>
     $(document).ready(function() {
             $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
             $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
         });
+  </script>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
@@ -198,6 +249,7 @@ if (isset($_FILES['midias'])) {
     .cabecalho_painel{
       display: flex;
       align-items: center;
+      margin-bottom: 22px;
     }
     .cabecalho{
       height: 100%;
@@ -223,12 +275,12 @@ if (isset($_FILES['midias'])) {
     text-align: center;
   }
   /* lista grid view */
-
+  
   .container {
     margin-right: unset;
     margin-left: unset;
   }
-
+  
   .view-group {
     display: -ms-flexbox;
     display: flex;
@@ -236,18 +288,18 @@ if (isset($_FILES['midias'])) {
     flex-direction: row;
     padding-left: 0;
     margin-bottom: 0;
-}
-.thumbnail
-{
+  }
+  .thumbnail
+  {
     margin-bottom: 30px;
     padding: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-}
-
-.item.list-group-item
-{
+  }
+  
+  .item.list-group-item
+  {
     float: none;
     width: 100%;
     background-color: #fff;
@@ -257,38 +309,114 @@ if (isset($_FILES['midias'])) {
     max-width: 100%;
     padding: 0 1rem;
     border: 0;
-}
-.item.list-group-item .img-event {
+  }
+  .item.list-group-item .img-event {
     float: left;
     width: 30%;
-}
-
-.item.list-group-item .list-group-image
-{
+  }
+  
+  .item.list-group-item .list-group-image
+  {
     margin-right: 10px;
-}
-.item.list-group-item .thumbnail
-{
+  }
+  .item.list-group-item .thumbnail
+  {
     margin-bottom: 0px;
     display: inline-block;
-}
-.item.list-group-item .caption
-{
+  }
+  .item.list-group-item .caption
+  {
     float: left;
     width: 70%;
     margin: 0;
     display: flex;
     flex-direction: column;
-}
-
-.item.list-group-item:before, .item.list-group-item:after
-{
+  }
+  
+  .item.list-group-item:before, .item.list-group-item:after
+  {
     display: table;
     content: " ";
+  }
+  
+  .item.list-group-item:after
+  {
+    clear: both;
+  }
+  /* Fim lista grid view */
+  /* estilização Modal */
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.item.list-group-item:after
-{
-    clear: both;
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  
 }
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color:  #144586;
+  color: white;
+  display:unset;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color:  #144586;
+  color: white;
+  justify-content: unset;
+}
+  /* FIM estilização Modal */
+
 </style>
