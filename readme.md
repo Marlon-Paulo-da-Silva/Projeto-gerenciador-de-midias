@@ -17,7 +17,7 @@ Sistema para Gestão de Mídias
 <hr />
 
 ## Características
-- Sistema em desenvolvimento... 
+- Sistema em desenvolvimento,  veja as telas atuais até aqui abaixo
 
 <div align="center">
   <img align="center" src="https://raw.githubusercontent.com/Marlon-Paulo-da-Silva/Projeto-gerenciador-de-midias/main/gerenciador-de-midias.png" alt="demo" height="425">
